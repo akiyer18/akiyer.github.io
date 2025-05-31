@@ -1,3 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom glass card component */
+@layer components {
+  .glass-card {
+    @apply bg-white/10 border border-white/20 rounded-xl shadow-xl;
+  }
+  
+  .glass-card-dark {
+    @apply bg-black/20 border border-white/10 rounded-xl shadow-2xl;
+  }
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
