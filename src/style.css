@@ -1,16 +1,37 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Custom glass card component */
-@layer components {
-  .glass-card {
-    @apply bg-white/10 border border-white/20 rounded-xl shadow-xl;
-  }
-  
-  .glass-card-dark {
-    @apply bg-black/20 border border-white/10 rounded-xl shadow-2xl;
-  }
+/* Custom theme configuration for TailwindCSS v4 */
+@theme {
+  --color-accent: #00FFAB;
+  --color-primary-50: #f0fdf4;
+  --color-primary-500: #00FFAB;
+  --color-primary-900: #0f172a;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Custom glass card styles */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.glass-card-dark {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
 }
 
 :root {

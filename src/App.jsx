@@ -6,20 +6,20 @@ function App() {
 
   return (
     <div className={`min-h-screen transition-all duration-300 ${
-      isDark ? 'dark bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900' 
+      isDark ? 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800' 
              : 'bg-gradient-to-br from-blue-50 via-white to-purple-50'
     }`}>
       {/* Navigation */}
-      <nav className="p-6 backdrop-blur-sm bg-black/20 border-b border-white/10">
+      <nav className="p-6 bg-black bg-opacity-20 border-b border-white border-opacity-10">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-accent to-purple-400 bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold text-accent">
             AkshCreations
           </h1>
           
           {/* Theme Toggle */}
           <button
             onClick={() => setIsDark(!isDark)}
-            className="glass-card-dark px-4 py-2 hover:bg-white/20 transition-all duration-200"
+            className="glass-card-dark px-4 py-2 hover:bg-white hover:bg-opacity-20 transition-all duration-200 text-white"
           >
             {isDark ? '☀️' : '🌙'}
           </button>
@@ -71,7 +71,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="mt-20 p-6 text-center text-gray-400 border-t border-white/10">
+      <footer className="mt-20 p-6 text-center text-gray-400 border-t border-white border-opacity-10">
         <p>Built with React + Vite + TailwindCSS</p>
       </footer>
     </div>
