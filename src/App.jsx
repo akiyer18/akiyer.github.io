@@ -6,7 +6,7 @@ function App() {
 
   return (
     <div className={`min-h-screen transition-all duration-300 ${
-      isDark ? 'bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800' 
+      isDark ? 'dark bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800' 
              : 'bg-gradient-to-br from-blue-50 via-white to-purple-50'
     }`}>
       {/* Navigation */}
@@ -46,7 +46,7 @@ function App() {
             { title: 'Gym Routine', icon: '💪', desc: 'Fitness tracking' },
             { title: 'Habit Tracker', icon: '✅', desc: 'Build good habits' }
           ].map((item, index) => (
-            <div key={index} className="glass-card-dark p-6 hover:scale-105 transition-all duration-300 cursor-pointer">
+            <div key={index} className="glass-card-dark p-6 hover:scale-105 transform transition-all duration-300 cursor-pointer">
               <div className="text-4xl mb-4">{item.icon}</div>
               <h3 className="text-xl font-semibold text-white mb-2">{item.title}</h3>
               <p className="text-gray-400">{item.desc}</p>
@@ -61,7 +61,7 @@ function App() {
             { title: 'Articles', desc: 'Read my blog posts', icon: '📝' },
             { title: 'Tools', desc: 'Useful utilities and calculators', icon: '🛠️' }
           ].map((section, index) => (
-            <div key={index} className="glass-card-dark p-8 text-center hover:scale-105 transition-all duration-300 cursor-pointer">
+            <div key={index} className="glass-card-dark p-8 text-center hover:scale-105 transform transition-all duration-300 cursor-pointer">
               <div className="text-5xl mb-4">{section.icon}</div>
               <h3 className="text-2xl font-bold text-white mb-3">{section.title}</h3>
               <p className="text-gray-300">{section.desc}</p>
@@ -72,7 +72,7 @@ function App() {
 
       {/* Footer */}
       <footer className="mt-20 p-6 text-center text-gray-400 border-t border-white border-opacity-10">
-        <p>Built with React + Vite + TailwindCSS</p>
+        <p>Built with React + Vite + TailwindCSS v3</p>
       </footer>
     </div>
   )
