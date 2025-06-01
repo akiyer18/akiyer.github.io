@@ -196,7 +196,7 @@ class AppCardManager {
             },
             'meal-decider': {
                 url: '#',
-                title: 'Meal Decider Preview (Coming Soon)'
+                title: 'Meal Decider Preview'
             }
         };
 
