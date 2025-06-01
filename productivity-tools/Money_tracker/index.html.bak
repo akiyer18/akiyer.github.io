@@ -8,7 +8,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<div style="position: fixed; top: 1rem; left: 1rem; z-index: 1000;"><a href="../" style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(139, 124, 246, 0.9); color: white; padding: 0.75rem 1rem; border-radius: 0.5rem; text-decoration: none; font-weight: 500; backdrop-filter: blur(10px); transition: all 0.3s ease;"><i class="fas fa-arrow-left"></i> Back to Growth Mindset Tools</a></div>
 <body>
     <nav class="navbar">
         <div class="nav-container">
