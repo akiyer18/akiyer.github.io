@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Own Your Day: Build the Life You Want</title>
+    <meta name="description" content="Your personal life gamification toolkit. Track habits, earn rewards, and design the day that works for you—your way.">
+    
+    <!-- Cache bust: 2024-12-19-updated-deployment -->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Light mode colors */
+            --bg-primary: #FAFBFE;
+            --bg-secondary: #FFFFFF;
+            --bg-tertiary: #F8FAFC;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+            --border-color: #E2E8F0;
+            --shadow: rgba(0,0,0,0.05);
+            --accent-purple: #8B7CF6;
+            --accent-blue: #06B6D4;
+        }
+        
+        [data-theme="dark"] {
+            /* Dark mode colors */
+            --bg-primary: #0F172A;
+            --bg-secondary: #1E293B;
+            --bg-tertiary: #334155;
+            --text-primary: #F1F5F9;
+            --text-secondary: #CBD5E1;
+            --text-muted: #94A3B8;
+            --border-color: #475569;
+            --shadow: rgba(0,0,0,0.3);
+            --accent-purple: #A78BFA;
+            --accent-blue: #22D3EE;
+        }
+        
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        /* Mobile-first container */
+        .container { 
+            width: 100%;
+            margin: 0 auto; 
+            padding: 1rem;
+        }
+        
+        @media (min-width: 641px) {
+            .container {
+                padding: 1.5rem;
+                max-width: 768px;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .container {
+                padding: 2rem;
+                max-width: 1200px;
+            }
+        }
+        
+        /* Dark mode toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 0.75rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px var(--shadow);
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .theme-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        
+        /* Header styles */
+        header { 
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue)); 
+            color: white; 
+            padding: 2rem 0; 
+            text-align: center;
+        }
+        
+        @media (min-width: 641px) {
+            header {
+                padding: 3rem 0;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            header {
+                padding: 4rem 0;
+            }
+        }
+        
+        h1 { 
+            font-size: 1.875rem;
+            margin-bottom: 1rem; 
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 641px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        .subtitle { 
+            font-size: 1rem;
+            opacity: 0.9; 
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        @media (min-width: 641px) {
+            .subtitle {
+                font-size: 1.125rem;
+                margin-bottom: 2rem;
+                max-width: 600px;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .subtitle {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Quote section */
+        .motivational-quote {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1rem;
+            margin: 1.5rem auto;
+            max-width: 95%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        @media (min-width: 641px) {
+            .motivational-quote {
+                padding: 1.25rem;
+                margin: 2rem auto;
+                max-width: 500px;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .motivational-quote {
+                padding: 1.5rem;
+            }
+        }
+        
+        .quote-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        @media (min-width: 641px) {
+            .quote-text {
+                font-size: 1.1rem;
+            }
+        }
+        
+        .quote-author {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        @media (min-width: 641px) {
+            .quote-author {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+        
+        @media (min-width: 641px) {
+            .action-buttons {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
+                margin-top: 2rem;
+            }
+        }
+        
+        .action-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            border-radius: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 500;
+            cursor: pointer;
+            width: 100%;
+            max-width: 280px;
+            min-height: 3rem;
+            font-size: 1rem;
+        }
+        
+        @media (min-width: 641px) {
+            .action-button {
+                width: auto;
+                padding: 1rem 2rem;
+                min-width: 150px;
+            }
+        }
+        
+        .action-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .primary-button {
+            background: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
+        
+        .reset-button {
+            background: rgba(239, 68, 68, 0.8);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+        }
+        
+        .reset-button:hover {
+            background: rgba(239, 68, 68, 0.9);
+        }
+        
+        /* Main content sections */
+        .main-content {
+            padding: 2rem 0;
+        }
+        
+        @media (min-width: 641px) {
+            .main-content {
+                padding: 3rem 0;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .main-content {
+                padding: 4rem 0;
+            }
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+        
+        @media (min-width: 641px) {
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+        
+        @media (min-width: 641px) {
+            .section-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 2.5rem;
+                max-width: 600px;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .section-subtitle {
+                font-size: 1.2rem;
+                margin-bottom: 3rem;
+            }
+        }
+        
+        /* Tools grid */
+        .tools-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 1.5rem; 
+            margin-top: 1.5rem; 
+        }
+        
+        @media (min-width: 641px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.75rem;
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+        
+        .tool-card { 
+            background: var(--bg-secondary); 
+            border-radius: 1rem; 
+            padding: 1.5rem; 
+            box-shadow: 0 4px 20px var(--shadow); 
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @media (min-width: 641px) {
+            .tool-card {
+                padding: 1.75rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .tool-card {
+                padding: 2rem;
+            }
+        }
+        
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+        }
+        
+        .tool-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+        
+        .tool-card h3 { 
+            color: var(--accent-purple); 
+            margin-bottom: 1rem; 
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            line-height: 1.3;
+        }
+        
+        @media (min-width: 641px) {
+            .tool-card h3 {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .tool-card h3 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .tool-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        @media (min-width: 641px) {
+            .tool-description {
+                font-size: 1rem;
+            }
+        }
+        
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue)); 
+            color: white; 
+            padding: 0.875rem 1.5rem; 
+            text-decoration: none; 
+            border-radius: 0.5rem; 
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            min-height: 2.75rem;
+            font-size: 0.95rem;
+        }
+        
+        @media (min-width: 641px) {
+            .btn {
+                font-size: 1rem;
+                padding: 0.75rem 1.5rem;
+            }
+        }
+        
+        .btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 15px rgba(139, 124, 246, 0.4);
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-left: auto;
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        
+        @media (min-width: 641px) {
+            .status-badge {
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* About the Developer Section */
+        .about-developer-section {
+            background: linear-gradient(135deg, #EDE9FE, #F3E8FF, #E0F2FE);
+            border-radius: 1.5rem;
+            padding: 2rem 1.5rem;
+            margin: 3rem 0 2rem 0;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px var(--shadow);
+        }
+        
+        @media (min-width: 641px) {
+            .about-developer-section {
+                padding: 2.5rem 2rem;
+                margin: 4rem 0 2rem 0;
+                border-radius: 2rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .about-developer-section {
+                padding: 3rem 2rem;
+                margin: 4rem 0 2rem 0;
+            }
+        }
+        
+        [data-theme="dark"] .about-developer-section {
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1), rgba(14, 165, 233, 0.1));
+        }
+        
+        .developer-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        @media (min-width: 641px) {
+            .developer-title {
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .developer-title {
+                font-size: 2rem;
+            }
+        }
+        
+        .developer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .developer-text {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+        }
+        
+        @media (min-width: 641px) {
+            .developer-text {
+                padding: 2rem;
+                margin-bottom: 2.5rem;
+            }
+        }
+        
+        [data-theme="dark"] .developer-text {
+            background: rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .developer-text p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+        
+        @media (min-width: 641px) {
+            .developer-text p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .developer-text p {
+                font-size: 1.125rem;
+            }
+        }
+        
+        .developer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        @media (min-width: 641px) {
+            .developer-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+        }
+        
+        .developer-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--text-primary);
+            padding: 1rem 1.5rem;
+            text-decoration: none;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            min-height: 3rem;
+            font-weight: 500;
+            width: 100%;
+            max-width: 280px;
+            justify-content: center;
+        }
+        
+        @media (min-width: 641px) {
+            .developer-link {
+                width: auto;
+                min-width: 200px;
+            }
+        }
+        
+        [data-theme="dark"] .developer-link {
+            background: rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .developer-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        [data-theme="dark"] .developer-link:hover {
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+        }
+        
+        .email-link:hover {
+            background: linear-gradient(135deg, #10B981, #059669);
+            color: white;
+            border-color: #10B981;
+        }
+        
+        .linkedin-link:hover {
+            background: linear-gradient(135deg, #0077B5, #005885);
+            color: white;
+            border-color: #0077B5;
+        }
+        
+        .developer-link i {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+        
+        .developer-link span {
+            font-size: 0.95rem;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 641px) {
+            .developer-link span {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        @media (min-width: 641px) {
+            footer {
+                padding: 2.5rem 0;
+                margin-top: 3.5rem;
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            footer {
+                padding: 3rem 0;
+                margin-top: 4rem;
+            }
+        }
+        
+        footer p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        @media (min-width: 641px) {
+            footer p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Focus states and accessibility */
+        .action-button:focus,
+        .btn:focus,
+        .developer-link:focus,
+        .theme-toggle:focus {
+            outline: 2px solid var(--accent-purple);
+            outline-offset: 2px;
+        }
+        
+        /* Animations */
+        @keyframes slideIn {
+            from { 
+                transform: translateX(100%); 
+                opacity: 0; 
+            }
+            to { 
+                transform: translateX(0); 
+                opacity: 1; 
+            }
+        }
+        
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" id="theme-icon"></i>
+    </button>
+    
+    <header>
+        <div class="container">
+            <h1>Own Your Day: Build the Life You Want</h1>
+            <p class="subtitle">Your personal life gamification toolkit. Track habits, earn rewards, and design the day that works for you—your way.</p>
+            
+            <div class="motivational-quote">
+                <p class="quote-text">"The main rule is: there are no rules. You make your own."</p>
+                <p class="quote-author">— Your Life Game</p>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="productivity-tools/" class="action-button primary-button">
+                    <i class="fas fa-play"></i>
+                    Start Your Game
+                </a>
+                <a href="https://github.com/akiyer18/akiyer18.github.io" class="action-button" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i>
+                    View the Code
+                </a>
+                <button onclick="resetAllData()" class="action-button reset-button">
+                    <i class="fas fa-broom"></i>
+                    🧼 Reset All Data
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <h2 class="section-title">Your Productivity Arsenal</h2>
+            <p class="section-subtitle">Four powerful tools designed to help you take control of every aspect of your life. Start anywhere, build everywhere.</p>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>
+                        💰 Money Mastery
+                        <span class="status-badge">Ready</span>
+                    </h3>
+                    <p class="tool-description">
+                        Take control of your finances with smart tracking and budgeting. See where your money goes and 
+                        make every dollar work toward your dreams. Dark mode included for late-night planning sessions.
+                    </p>
+                    <a href="productivity-tools/" class="btn">
+                        <i class="fas fa-chart-line"></i>
+                        Start Tracking
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>
+                        🍽️ Meal Planning Pro
+                        <span class="status-badge">Ready</span>
+                    </h3>
+                    <p class="tool-description">
+                        Stop wondering "what's for dinner?" Smart meal decisions and automatic grocery lists mean 
+                        more time for what matters. Your kitchen, your rules.
+                    </p>
+                    <a href="productivity-tools/" class="btn">
+                        <i class="fas fa-utensils"></i>
+                        Plan Meals
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>
+                        🎓 Study & Schedule Boss
+                        <span class="status-badge">Ready</span>
+                    </h3>
+                    <p class="tool-description">
+                        Academic success starts with smart planning. Manage classes, track assignments, and 
+                        schedule study sessions. Turn chaos into organized achievement.
+                    </p>
+                    <a href="productivity-tools/" class="btn">
+                        <i class="fas fa-graduation-cap"></i>
+                        Get Organized
+                    </a>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>
+                        🛒 Smart Shopping
+                        <span class="status-badge">Ready</span>
+                    </h3>
+                    <p class="tool-description">
+                        Never forget groceries again. Create lists from your meal plans, organize by store sections, 
+                        and shop with purpose. Efficiency meets convenience.
+                    </p>
+                    <a href="productivity-tools/" class="btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        Make Lists
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- About the Developer Section -->
+    <section class="about-developer-section">
+        <div class="container">
+            <h2 class="developer-title">About the Developer</h2>
+            <div class="developer-content">
+                <div class="developer-text">
+                    <p>Hi, I'm Aki. I'm passionate about creating intelligent systems to make life easier, more intentional, and even fun. This project is a personal tool that I hope can help others bring structure and joy into their day.</p>
+                </div>
+                <div class="developer-links">
+                    <a href="mailto:akshaye.iyer@outlook.com" class="developer-link email-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-envelope"></i>
+                        <span>akshaye.iyer@outlook.com</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/akshaye-iyer/" class="developer-link linkedin-link" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Community Building Section -->
+    <section style="background: linear-gradient(135deg, #F0F9FF, #E0F2FE, #ECFDF5); border-radius: 2rem; margin: 4rem 0; padding: 3rem 2rem; border: 1px solid var(--border-color); box-shadow: 0 8px 32px var(--shadow);" data-theme-section="community">
+        <div class="container">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; font-weight: 600; line-height: 1.3;">
+                    🚀 Not Just for Viewing — For Building
+                </h2>
+                
+                <div style="background: rgba(255, 255, 255, 0.8); border-radius: 1.5rem; padding: 2rem; margin: 2rem 0; border: 1px solid rgba(255, 255, 255, 0.9);" data-theme-box="community-main">
+                    <p style="font-size: 1.2rem; color: var(--text-primary); line-height: 1.7; margin: 0; font-weight: 500;">
+                        <strong>This site is not just for viewing — it's for building.</strong> Fork it, remix it, personalize your rules. Or join the core vision by contributing tools, styles, and logic that help others grow. You're in control. Let's make life gamified, together.
+                    </p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2.5rem 0;">
+                    <div style="background: rgba(255, 255, 255, 0.9); border-radius: 1rem; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.9); transition: transform 0.3s ease;" data-theme-card="community" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🍴</div>
+                        <h3 style="color: var(--accent-purple); margin-bottom: 0.75rem; font-size: 1.1rem;">Fork & Personalize</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin: 0;">Make it yours — change colors, add features, create your perfect productivity system</p>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.9); border-radius: 1rem; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.9); transition: transform 0.3s ease;" data-theme-card="community" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎵</div>
+                        <h3 style="color: var(--accent-purple); margin-bottom: 0.75rem; font-size: 1.1rem;">Remix & Share</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin: 0;">Build on this foundation and share your innovations with the growing community</p>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.9); border-radius: 1rem; padding: 1.5rem; border: 1px solid rgba(255, 255, 255, 0.9); transition: transform 0.3s ease;" data-theme-card="community" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌱</div>
+                        <h3 style="color: var(--accent-purple); margin-bottom: 0.75rem; font-size: 1.1rem;">Contribute & Grow</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.5; margin: 0;">Help others by contributing tools, styles, and productivity logic that makes life better</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 2.5rem;">
+                    <a href="https://github.com/akiyer18/akiyer18.github.io" style="display: inline-flex; align-items: center; gap: 0.75rem; background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue)); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 0.75rem; transition: all 0.3s ease; margin: 0.5rem; font-weight: 500;" target="_blank" rel="noopener noreferrer" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(139, 124, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <i class="fab fa-github" style="font-size: 1.25rem;"></i>
+                        <span>Fork on GitHub</span>
+                    </a>
+                    <a href="mailto:akshaye.iyer@outlook.com" style="display: inline-flex; align-items: center; gap: 0.75rem; background: rgba(16, 185, 129, 0.9); color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 0.75rem; transition: all 0.3s ease; margin: 0.5rem; font-weight: 500;" target="_blank" rel="noopener noreferrer" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(16, 185, 129, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <i class="fas fa-heart" style="font-size: 1.25rem;"></i>
+                        <span>Join the Vision</span>
+                    </a>
+                </div>
+                
+                <p style="margin-top: 2rem; font-style: italic; color: var(--text-secondary); font-size: 1rem;">
+                    🌟 <strong>Join developers worldwide making life more intentional and fun</strong> 🌟
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>Your journey to a better you starts with a single click. Every small step counts.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.6;">
+                Ready to level up? Your future self will thank you.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Management
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            const currentTheme = html.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                html.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        function initializeTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            const theme = savedTheme || (prefersDark ? 'dark' : 'light');
+            
+            html.setAttribute('data-theme', theme);
+            themeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                if (!localStorage.getItem('theme')) {
+                    const newTheme = e.matches ? 'dark' : 'light';
+                    html.setAttribute('data-theme', newTheme);
+                    themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+                }
+            });
+        }
+        
+        // Reset All Data function with enhanced confirmation
+        function resetAllData() {
+            if (confirm('🧼 Reset All Data\n\nAre you sure you want to start fresh? This will reset your entire game and cannot be undone.\n\nThis will clear:\n• All progress and achievements\n• Saved preferences\n• Any custom data\n\nClick OK to proceed or Cancel to keep your data.')) {
+                // Clear all localStorage data
+                const keysToKeep = ['theme']; // Keep theme preference
+                const allKeys = Object.keys(localStorage);
+                
+                allKeys.forEach(key => {
+                    if (!keysToKeep.includes(key)) {
+                        localStorage.removeItem(key);
+                    }
+                });
+                
+                // Show confirmation message
+                showNotification('🎉 All data has been reset! Ready for a fresh start!');
+                
+                // Optional: Reload the page after a short delay
+                setTimeout(() => {
+                    window.location.reload();
+                }, 2000);
+            }
+        }
+        
+        // Simple notification system
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            const isMobile = window.innerWidth <= 640;
+            
+            notification.style.cssText = `
+                position: fixed;
+                top: ${isMobile ? '1rem' : '2rem'};
+                right: ${isMobile ? '1rem' : '2rem'};
+                left: ${isMobile ? '1rem' : 'auto'};
+                max-width: ${isMobile ? 'calc(100% - 2rem)' : '400px'};
+                background: linear-gradient(135deg, var(--accent-purple), var(--accent-blue));
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 0.5rem;
+                z-index: 1001;
+                font-size: ${isMobile ? '0.9rem' : '1rem'};
+                box-shadow: 0 8px 25px rgba(139, 124, 246, 0.4);
+                animation: slideIn 0.3s ease;
+                word-wrap: break-word;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease forwards';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        // Add slide out animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideOut {
+                from { 
+                    transform: translateX(0); 
+                    opacity: 1; 
+                }
+                to { 
+                    transform: translateX(100%); 
+                    opacity: 0; 
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeTheme();
+        });
+    </script>
+</body>
+</html> 
