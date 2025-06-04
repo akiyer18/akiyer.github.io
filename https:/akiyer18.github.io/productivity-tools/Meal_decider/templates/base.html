@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Decider</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="{{ url_for('index') }}" class="btn">Home</a>
+            <a href="{{ url_for('menu') }}" class="btn">Menu</a>
+            <a href="{{ url_for('groceries') }}" class="btn">Groceries</a>
+            <a href="{{ url_for('choose') }}" class="btn">Choose Meal</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script>
+        // Add page transition classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const main = document.querySelector('main');
+            main.classList.add('page-enter');
+            
+            // Handle navigation
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (link.getAttribute('href').startsWith('{{ url_for("index") }}')) {
+                        e.preventDefault();
+                        main.classList.add('page-exit');
+                        setTimeout(() => {
+                            window.location = link.getAttribute('href');
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Hide/show navigation on scroll
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                nav.classList.add('hidden');
+            } else {
+                nav.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html> 

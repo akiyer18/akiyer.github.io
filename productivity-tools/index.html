@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth Mindset Tools - Personal Productivity Suite</title>
+    <meta name="description" content="A collection of modern productivity applications for personal finance, meal planning, and grocery management.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-rocket"></i>
+                <span>Growth Mindset Tools</span>
+            </div>
+            <div class="nav-menu">
+                <a href="../" class="nav-link" title="Back to Portfolio">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Portfolio</span>
+                </a>
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#apps" class="nav-link">Apps</a>
+                <a href="#about" class="nav-link">About</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Empower Your
+                    <span class="gradient-text">Personal Growth</span>
+                </h1>
+                <p class="hero-subtitle">
+                    A curated collection of beautiful, modern applications designed to enhance your daily productivity and personal management.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#apps" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Explore Apps
+                    </a>
+                    <a href="https://github.com/akiyer18/akiyer18.github.io" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-github"></i>
+                        View Source
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cards">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="floating-card card-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section id="apps" class="apps-section">
+        <div class="container">
+            <h2 class="section-title">Productivity Applications</h2>
+            <p class="section-subtitle">Smart tools for modern life management</p>
+            
+            <div class="apps-grid">
+                <!-- Money Tracker -->
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Student Finance Tracker</h3>
+                    <p class="app-description">
+                        Comprehensive finance management with dashboard, account tracking, budget planning, and expense categorization.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">Dashboard</span>
+                        <span class="feature-tag">Budgeting</span>
+                        <span class="feature-tag">Analytics</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="../Money_tracker/" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch App
+                        </a>
+                        <button class="btn btn-secondary" onclick="showAppPreview('money-tracker')">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grocery List Generator -->
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Grocery List Generator</h3>
+                    <p class="app-description">
+                        Smart grocery management with dish-based list generation, manual entry, and cross-app meal integration.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">Dish-Based</span>
+                        <span class="feature-tag">Categories</span>
+                        <span class="feature-tag">Export/Import</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="../Grocery_list_generator/" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch App
+                        </a>
+                        <button class="btn btn-secondary" onclick="showAppPreview('grocery-generator')">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Meal Decider -->
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Meal Decider</h3>
+                    <p class="app-description">
+                        Intelligent meal recommendations based on available ingredients, cooking time, and dietary preferences.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">AI Matching</span>
+                        <span class="feature-tag">Recipe Management</span>
+                        <span class="feature-tag">Grocery Sync</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="../Meal_decider/" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch App
+                        </a>
+                        <button class="btn btn-secondary" onclick="showAppPreview('meal-decider')">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Calendar & Event Manager -->
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Calendar & Event Manager</h3>
+                    <p class="app-description">
+                        Comprehensive calendar with recurring events, smart to-do integration, trip planning, and tag-based organization.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">Recurring Events</span>
+                        <span class="feature-tag">To-Do Integration</span>
+                        <span class="feature-tag">Trip Planning</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="../Calendar_manager/" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch App
+                        </a>
+                        <button class="btn btn-secondary" onclick="showAppPreview('calendar-manager')">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Class & Study Planner -->
+                <div class="app-card">
+                    <div class="app-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Class & Study Planner</h3>
+                    <p class="app-description">
+                        Academic schedule management with class timetables, study session planning, assignment tracking, and deadline reminders.
+                    </p>
+                    <div class="app-features">
+                        <span class="feature-tag">Timetable Grid</span>
+                        <span class="feature-tag">Assignment Tracker</span>
+                        <span class="feature-tag">Study Planning</span>
+                    </div>
+                    <div class="app-actions">
+                        <a href="../Class_study_planner/" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Launch App
+                        </a>
+                        <button class="btn btn-secondary" onclick="showAppPreview('class-planner')">
+                            <i class="fas fa-eye"></i>
+                            Preview
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration Info -->
+            <div class="integration-info">
+                <h3><i class="fas fa-link"></i> Seamless Integration</h3>
+                <p>All apps work together to create a unified productivity experience:</p>
+                <div class="integration-flow">
+                    <div class="flow-step">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Schedule events & plan trips</span>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <i class="fas fa-utensils"></i>
+                        <span>Plan meals with Meal Decider</span>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Generate grocery lists automatically</span>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Track expenses in Finance Tracker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">Built for Modern Life</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <i class="fas fa-palette"></i>
+                        <h3>Beautiful Design</h3>
+                        <p>Modern UI with pastel themes, dark mode support, and smooth animations for an delightful user experience.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-database"></i>
+                        <h3>Smart Data Sync</h3>
+                        <p>Apps share data intelligently - meal plans automatically generate grocery lists and sync with expense tracking.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Responsive & Fast</h3>
+                        <p>Optimized for all devices with offline capability and instant loading for productivity on the go.</p>
+                    </div>
+                    <div class="about-card">
+                        <i class="fas fa-code"></i>
+                        <h3>Open Source</h3>
+                        <p>Built with modern web technologies and available on GitHub for learning and contribution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Building Section -->
+    <section class="community-section" style="background: linear-gradient(135deg, #F0F9FF, #E0F2FE, #ECFDF5); padding: 4rem 0; margin: 3rem 0;">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2.5rem; color: #1E293B; margin-bottom: 1.5rem; font-weight: 700;">
+                    🚀 Build, Don't Just Browse
+                </h2>
+                
+                <div style="background: rgba(255, 255, 255, 0.9); border-radius: 1.5rem; padding: 2.5rem; margin: 2rem 0; border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+                    <p style="font-size: 1.3rem; color: #1E293B; line-height: 1.7; margin: 0; font-weight: 500;">
+                        <strong>This site is not just for viewing — it's for building.</strong> Fork it, remix it, personalize your rules. Or join the core vision by contributing tools, styles, and logic that help others grow. You're in control. Let's make life gamified, together.
+                    </p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0;">
+                    <div style="background: rgba(255, 255, 255, 0.95); border-radius: 1.2rem; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.9); transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                        <div style="font-size: 3rem; margin-bottom: 1.5rem;">🍴</div>
+                        <h3 style="color: #8B7CF6; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 600;">Fork & Personalize</h3>
+                        <p style="color: #64748B; font-size: 1rem; line-height: 1.6; margin: 0;">Change colors, add features, create your perfect productivity ecosystem. Make it uniquely yours.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.95); border-radius: 1.2rem; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.9); transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                        <div style="font-size: 3rem; margin-bottom: 1.5rem;">🎵</div>
+                        <h3 style="color: #8B7CF6; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 600;">Remix & Share</h3>
+                        <p style="color: #64748B; font-size: 1rem; line-height: 1.6; margin: 0;">Build on this foundation and share your innovations. Inspire others with your creativity.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.95); border-radius: 1.2rem; padding: 2rem; border: 1px solid rgba(255, 255, 255, 0.9); transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.08);" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 12px 40px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'">
+                        <div style="font-size: 3rem; margin-bottom: 1.5rem;">🌱</div>
+                        <h3 style="color: #8B7CF6; margin-bottom: 1rem; font-size: 1.3rem; font-weight: 600;">Contribute & Grow</h3>
+                        <p style="color: #64748B; font-size: 1rem; line-height: 1.6; margin: 0;">Help others by contributing tools, styles, and logic. Together we build better productivity.</p>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 3rem;">
+                    <a href="https://github.com/akiyer18/akiyer18.github.io" style="display: inline-flex; align-items: center; gap: 1rem; background: linear-gradient(135deg, #8B7CF6, #06B6D4); color: white; padding: 1.2rem 2.5rem; text-decoration: none; border-radius: 0.8rem; transition: all 0.3s ease; margin: 0.75rem; font-weight: 600; font-size: 1.1rem;" target="_blank" rel="noopener noreferrer" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(139, 124, 246, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <i class="fab fa-github" style="font-size: 1.4rem;"></i>
+                        <span>Fork on GitHub</span>
+                    </a>
+                    <a href="mailto:akiyer18@gmail.com" style="display: inline-flex; align-items: center; gap: 1rem; background: linear-gradient(135deg, #10B981, #059669); color: white; padding: 1.2rem 2.5rem; text-decoration: none; border-radius: 0.8rem; transition: all 0.3s ease; margin: 0.75rem; font-weight: 600; font-size: 1.1rem;" target="_blank" rel="noopener noreferrer" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(16, 185, 129, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                        <i class="fas fa-heart" style="font-size: 1.4rem;"></i>
+                        <span>Join the Movement</span>
+                    </a>
+                </div>
+                
+                <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(139, 124, 246, 0.1); border-radius: 1rem; border: 1px solid rgba(139, 124, 246, 0.2);">
+                    <p style="font-size: 1.1rem; color: #64748B; margin: 0; font-style: italic;">
+                        🌟 <strong style="color: #8B7CF6;">Join developers worldwide making life more intentional and fun</strong> 🌟
+                    </p>
+                    <p style="font-size: 0.95rem; color: #64748B; margin: 0.5rem 0 0 0;">
+                        Whether you're a designer, developer, or productivity enthusiast — there's a place for you in this community.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">App Preview</h3>
+                <button class="modal-close" onclick="closePreview()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="preview-content">
+                    <!-- Preview content will be loaded here -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closePreview()">Close</button>
+                <a id="launch-app-btn" href="#" class="btn btn-primary">
+                    <i class="fas fa-external-link-alt"></i>
+                    Launch App
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Growth Mindset Tools</h4>
+                    <p>Empowering personal productivity through beautiful, modern applications.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#apps">Applications</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="../">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Applications</h4>
+                    <ul>
+                        <li><a href="../Money_tracker/">Finance Tracker</a></li>
+                        <li><a href="../Grocery_list_generator/">Grocery Generator</a></li>
+                        <li><a href="../Meal_decider/">Meal Decider</a></li>
+                        <li><a href="../Calendar_manager/">Calendar Manager</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://github.com/akiyer18/akiyer18.github.io" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="mailto:akiyer18@gmail.com">Email</a></li>
+                        <li><a href="https://www.linkedin.com/in/akiyer18/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Growth Mindset Tools. Built with ❤️ for personal productivity.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 
