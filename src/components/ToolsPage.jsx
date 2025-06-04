@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom'
 
 function ToolsPage() {
-  const tools = [
+  const productivityTools = [
     {
       title: 'Money Mastery',
-      description: 'Take control of your finances with smart tracking and budgeting',
+      description: 'Privacy-first financial tracking and budgeting',
       icon: '💰',
-      link: '/Money_tracker/',
+      link: '/money-mastery',
       gradient: 'from-green-400 to-emerald-600',
-      features: ['Dashboard', 'Budgeting', 'Analytics']
+      features: ['Privacy First', 'Expense Tracking', 'CSV Export'],
+      isInternal: true
     },
     {
       title: 'Meal Planning Pro',
@@ -38,11 +39,132 @@ function ToolsPage() {
       title: 'Calendar Manager',
       description: 'Comprehensive calendar with events and trip planning',
       icon: '📅',
-      link: '/Calendar_manager/',
+      link: '/calendar',
       gradient: 'from-teal-400 to-cyan-600',
-      features: ['Recurring Events', 'To-Do Integration', 'Trip Planning']
+      features: ['Recurring Events', 'To-Do Integration', 'Trip Planning'],
+      isInternal: true
     }
   ]
+
+  const musicProjects = [
+    {
+      title: 'Beat Maker Studio',
+      description: 'Create and produce beats with intuitive tools',
+      icon: '🎵',
+      link: '#',
+      gradient: 'from-pink-400 to-rose-600',
+      features: ['Beat Creation', 'Sound Library', 'Export Options'],
+      status: 'Coming Soon'
+    },
+    {
+      title: 'Song Analyzer',
+      description: 'Analyze your favorite songs and discover patterns',
+      icon: '🎤',
+      link: '#',
+      gradient: 'from-violet-400 to-purple-600',
+      features: ['Audio Analysis', 'Pattern Detection', 'Visualization'],
+      status: 'Coming Soon'
+    },
+    {
+      title: 'Playlist Generator',
+      description: 'AI-powered playlist creation based on mood and activity',
+      icon: '🎧',
+      link: '#',
+      gradient: 'from-indigo-400 to-blue-600',
+      features: ['Mood Detection', 'Activity Matching', 'Spotify Integration'],
+      status: 'Coming Soon'
+    }
+  ]
+
+  const aiTools = [
+    {
+      title: 'Smart Assistant',
+      description: 'AI-powered personal assistant for daily tasks',
+      icon: '🤖',
+      link: '#',
+      gradient: 'from-cyan-400 to-blue-600',
+      features: ['Task Management', 'Smart Scheduling', 'Natural Language'],
+      status: 'Coming Soon'
+    },
+    {
+      title: 'Content Creator',
+      description: 'Generate and optimize content with AI assistance',
+      icon: '✍️',
+      link: '#',
+      gradient: 'from-emerald-400 to-green-600',
+      features: ['Content Generation', 'Optimization', 'Multi-Platform'],
+      status: 'Coming Soon'
+    },
+    {
+      title: 'Decision Maker',
+      description: 'AI-powered decision support and analysis',
+      icon: '🧠',
+      link: '#',
+      gradient: 'from-amber-400 to-orange-600',
+      features: ['Decision Trees', 'Pro/Con Analysis', 'Risk Assessment'],
+      status: 'Coming Soon'
+    }
+  ]
+
+  const renderToolCard = (tool, index) => (
+    <div
+      key={index}
+      className="group bg-white bg-opacity-10 backdrop-blur-lg p-8 rounded-3xl border border-white border-opacity-20 hover:bg-opacity-20 hover:scale-105 transform transition-all duration-500 cursor-pointer relative"
+    >
+      {tool.status && (
+        <div className="absolute top-4 right-4 bg-yellow-500/20 border border-yellow-500/30 rounded-full px-3 py-1 text-xs text-yellow-300">
+          {tool.status}
+        </div>
+      )}
+      
+      <div className="text-center mb-6">
+        <div className="text-6xl mb-4 group-hover:animate-bounce">{tool.icon}</div>
+        <h3 className="text-2xl font-bold text-white mb-3">{tool.title}</h3>
+        <p className="text-gray-300 leading-relaxed">{tool.description}</p>
+      </div>
+      
+      {/* Features */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {tool.features.map((feature, featureIndex) => (
+          <span 
+            key={featureIndex}
+            className="text-xs bg-white bg-opacity-20 text-white px-3 py-1 rounded-full"
+          >
+            {feature}
+          </span>
+        ))}
+      </div>
+      
+      {/* Launch Button */}
+      {tool.status ? (
+        <div className="bg-gray-500 text-white px-6 py-3 rounded-2xl font-bold text-center opacity-50">
+          <span>{tool.status}</span>
+        </div>
+      ) : tool.isInternal ? (
+        <Link 
+          to={tool.link} 
+          className={`bg-gradient-to-r ${tool.gradient} text-white px-6 py-3 rounded-2xl font-bold text-center group-hover:shadow-lg transition-all duration-300 block`}
+        >
+          <span className="flex items-center justify-center gap-2">
+            Launch Tool
+            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </span>
+        </Link>
+      ) : (
+        <a
+          href={tool.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`bg-gradient-to-r ${tool.gradient} text-white px-6 py-3 rounded-2xl font-bold text-center group-hover:shadow-lg transition-all duration-300 block`}
+        >
+          <span className="flex items-center justify-center gap-2">
+            Launch Tool
+            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+          </span>
+        </a>
+      )}
+    </div>
+  )
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
@@ -56,12 +178,12 @@ function ToolsPage() {
       {/* Navigation */}
       <nav className="relative p-6 bg-black bg-opacity-30 border-b border-white border-opacity-20 backdrop-blur-lg">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
-          <Link to="/game" className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-purple-400 hover:to-pink-400 transition-all duration-300">
-            ← Back to Quest Hub
+          <Link to="/" className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400 hover:from-purple-400 hover:to-pink-400 transition-all duration-300">
+            ← Back to Home
           </Link>
           
-          <Link to="/" className="text-lg text-gray-300 hover:text-white transition-colors duration-300">
-            🏠 Home
+          <Link to="/game" className="text-lg text-gray-300 hover:text-white transition-colors duration-300">
+            🎮 Quest Hub
           </Link>
         </div>
       </nav>
@@ -71,72 +193,60 @@ function ToolsPage() {
         {/* Hero Section */}
         <div className="text-center py-16">
           <h1 className="text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 mb-6">
-            🔍 Discovery Tools
+            🚀 Productivity Universe
           </h1>
           <p className="text-2xl text-gray-200 mb-12 max-w-3xl mx-auto font-light">
-            Your arsenal of productivity tools to level up every aspect of your life
+            Your complete toolkit for productivity, creativity, and life optimization
           </p>
         </div>
 
-        {/* Tools Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {tools.map((tool, index) => (
-            <a
-              key={index}
-              href={tool.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-white bg-opacity-10 backdrop-blur-lg p-8 rounded-3xl border border-white border-opacity-20 hover:bg-opacity-20 hover:scale-105 transform transition-all duration-500 cursor-pointer block"
-            >
-              <div className="text-center mb-6">
-                <div className="text-6xl mb-4 group-hover:animate-bounce">{tool.icon}</div>
-                <h3 className="text-2xl font-bold text-white mb-3">{tool.title}</h3>
-                <p className="text-gray-300 leading-relaxed">{tool.description}</p>
-              </div>
-              
-              {/* Features */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {tool.features.map((feature, featureIndex) => (
-                  <span 
-                    key={featureIndex}
-                    className="text-xs bg-white bg-opacity-20 text-white px-3 py-1 rounded-full"
-                  >
-                    {feature}
-                  </span>
-                ))}
-              </div>
-              
-              {/* Launch Button */}
-              <div className={`bg-gradient-to-r ${tool.gradient} text-white px-6 py-3 rounded-2xl font-bold text-center group-hover:shadow-lg transition-all duration-300`}>
-                <span className="flex items-center justify-center gap-2">
-                  Launch Tool
-                  <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                </span>
-              </div>
-            </a>
-          ))}
-        </div>
+        {/* Productivity Apps Section */}
+        <section className="mb-16">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">
+            📱 Productivity Apps
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {productivityTools.map(renderToolCard)}
+          </div>
+        </section>
+
+        {/* Music Projects Section */}
+        <section className="mb-16">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">
+            🎵 Music Projects
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {musicProjects.map(renderToolCard)}
+          </div>
+        </section>
+
+        {/* AI Tools Section */}
+        <section className="mb-16">
+          <h2 className="text-4xl font-bold text-white mb-8 text-center">
+            🤖 AI Tools
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {aiTools.map(renderToolCard)}
+          </div>
+        </section>
 
         {/* Integration Info */}
         <div className="bg-black bg-opacity-30 backdrop-blur-lg rounded-3xl p-8 border border-white border-opacity-20 mb-12">
           <h2 className="text-3xl font-bold text-center text-white mb-8">🔗 Seamless Integration</h2>
           <p className="text-xl text-gray-300 text-center mb-8">
-            All tools work together to create a unified productivity experience
+            All tools work together to create a unified productivity and creative experience
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { icon: '📅', text: 'Schedule events & plan trips' },
-              { icon: '🍽️', text: 'Plan meals with Meal Decider' },
-              { icon: '🛒', text: 'Generate grocery lists automatically' },
-              { icon: '📊', text: 'Track expenses in Finance Tracker' }
+              { icon: '📊', text: 'Track your progress across all tools' },
+              { icon: '🎯', text: 'Set goals and achieve them systematically' },
+              { icon: '🔄', text: 'Sync data between apps seamlessly' },
+              { icon: '🚀', text: 'Boost productivity with AI assistance' }
             ].map((step, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl mb-3">{step.icon}</div>
                 <p className="text-gray-300 text-sm">{step.text}</p>
-                {index < 3 && (
-                  <div className="hidden md:block text-2xl text-purple-400 mt-2">→</div>
-                )}
               </div>
             ))}
           </div>
@@ -144,21 +254,21 @@ function ToolsPage() {
 
         {/* Call to Action */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Ready to Level Up Your Life?</h2>
+          <h2 className="text-3xl font-bold text-white mb-6">Ready to Transform Your Productivity?</h2>
           <p className="text-xl text-gray-300 mb-8">
-            Start with any tool and build your perfect productivity system
+            Start with any tool and build your perfect productivity ecosystem
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a 
-              href="/productivity-tools/"
-              className="group bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-10 py-4 rounded-2xl font-bold text-xl shadow-2xl transform hover:scale-110 transition-all duration-300 hover:shadow-blue-500/50"
+            <Link 
+              to="/money-mastery"
+              className="group bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-10 py-4 rounded-2xl font-bold text-xl shadow-2xl transform hover:scale-110 transition-all duration-300 hover:shadow-green-500/50"
             >
               <span className="flex items-center gap-3">
-                🚀 View All Tools
+                💰 Try Money Mastery
                 <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
               </span>
-            </a>
+            </Link>
             
             <Link 
               to="/game"

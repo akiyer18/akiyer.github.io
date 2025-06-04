@@ -87,8 +87,7 @@ export class SelectedDishCard {
 
     update(selectedDish: SelectedDish): void {
         this.selectedDish = selectedDish;
-        // Re-render the component
-        const newElement = this.render();
-        // This would typically be handled by a parent component
+        // Note: Re-rendering would typically be handled by a parent component
+        // This method is for updating the internal state
     }
 } 

@@ -1,4 +1,4 @@
-import { searchDishes, dishDatabase } from './data/dishDatabase';
+import { dishDatabase } from './data/dishDatabase';
 import { StorageManager } from './utils/storage';
 import { DishCard, SelectedDishCard } from './components/DishCard';
 import { GroceryItem, ReminderTile } from './components/GroceryItem';
@@ -6,8 +6,7 @@ import {
     Dish, 
     GroceryItem as GroceryItemType, 
     SelectedDish, 
-    Frequency,
-    FrequentItem 
+    Frequency
 } from './types';
 
 export class GroceryApp {
