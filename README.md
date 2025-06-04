@@ -109,7 +109,7 @@ We believe everyone has unique productivity insights to share. Here's how you ca
 ## 📞 Connect & Collaborate
 
 - **📧 Email**: [akiyer18@gmail.com](mailto:akiyer18@gmail.com)
-- **💼 LinkedIn**: [linkedin.com/in/akiyer18](https://www.linkedin.com/in/akiyer18/)
+- **💼 LinkedIn**: [linkedin.com/in/akshaye-iyer](https://www.linkedin.com/in/akshaye-iyer/)
 - **💻 GitHub**: [github.com/akiyer18/akiyer18.github.io](https://github.com/akiyer18/akiyer18.github.io)
 
 ## 🎯 License & Sharing
