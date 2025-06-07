@@ -4,11 +4,556 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Own Your Day: Build the Life You Want</title>
-    <meta name="description" content="Your personal life gamification toolkit. Track habits, earn rewards, and design the day that works for you—your way." />
+    <title>Akshaye Iyer - Developer Portfolio</title>
+    <meta name="description" content="Developer, Creator, Problem Solver. Showcasing open-source projects in productivity tools, web applications, and modern technologies.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            line-height: 1.6; 
+            color: #1E293B;
+            background: #FAFBFE;
+        }
+        
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 2rem; 
+        }
+        
+        header { 
+            background: linear-gradient(135deg, #8B7CF6, #06B6D4); 
+            color: white; 
+            padding: 4rem 0; 
+            text-align: center;
+        }
+        
+        h1 { 
+            font-size: 3rem; 
+            margin-bottom: 1rem; 
+            font-weight: 700;
+        }
+        
+        .subtitle { 
+            font-size: 1.3rem; 
+            opacity: 0.9; 
+            margin-bottom: 2rem;
+        }
+        
+        .intro-text {
+            font-size: 1.1rem;
+            opacity: 0.85;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        .projects { 
+            padding: 4rem 0; 
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #1E293B;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #64748B;
+            margin-bottom: 3rem;
+        }
+        
+        .project-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 2rem; 
+            margin-top: 2rem; 
+        }
+        
+        .project-card { 
+            background: white; 
+            border-radius: 1rem; 
+            padding: 2rem; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+            transition: all 0.3s ease;
+            border: 1px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #8B7CF6, #06B6D4);
+        }
+        
+        .project-card:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .project-card h3 { 
+            color: #8B7CF6; 
+            margin: 0; 
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+        }
+        
+        .project-description {
+            color: #64748B;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn { 
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #8B7CF6, #06B6D4); 
+            color: white; 
+            padding: 0.6rem 1.2rem; 
+            text-decoration: none; 
+            border-radius: 0.5rem; 
+            transition: all 0.3s ease;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 15px rgba(139, 124, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #8B7CF6;
+            border: 2px solid #8B7CF6;
+        }
+        
+        .btn-secondary:hover {
+            background: #8B7CF6;
+            color: white;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: #059669;
+            border: 2px solid #059669;
+        }
+        
+        .btn-outline:hover {
+            background: #059669;
+            color: white;
+        }
+        
+        .clone-command {
+            background: #1E293B;
+            color: #F1F5F9;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            position: relative;
+            border: 1px solid #334155;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #8B7CF6;
+            color: white;
+            border: none;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #7C3AED;
+        }
+        
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-tag {
+            background: #F1F5F9;
+            color: #64748B;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .status-live {
+            background: rgba(16, 185, 129, 0.1);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        
+        .status-opensource {
+            background: rgba(139, 124, 246, 0.1);
+            color: #8B7CF6;
+            border: 1px solid rgba(139, 124, 246, 0.2);
+        }
+        
+        footer {
+            background: #1E293B;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        
+        footer a {
+            color: #8B7CF6;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 1rem; }
+            .project-grid { grid-template-columns: 1fr; }
+            .project-links { flex-direction: column; }
+            .social-links { flex-direction: column; align-items: center; }
+            .project-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <header>
+        <div class="container">
+            <h1>Akshaye Iyer</h1>
+            <p class="subtitle">Developer • Creator • Problem Solver</p>
+            <p class="intro-text">
+                Building modern web applications and productivity tools with clean code, 
+                beautiful design, and user-focused experiences. All projects are open-source 
+                and ready to clone, customize, and deploy.
+            </p>
+            
+            <div class="social-links">
+                <a href="https://github.com/akiyer18" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/akshaye-iyer/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn
+                </a>
+                <a href="mailto:akshaye.iyer@outlook.com" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                    akshaye.iyer@outlook.com
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="projects">
+        <div class="container">
+            <h2 class="section-title">Open Source Projects</h2>
+            <p class="section-subtitle">Production-ready applications you can preview, clone, and deploy locally</p>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>
+                            💰 Money Mastery Tool
+                        </h3>
+                        <span class="status-badge status-live">Live Demo</span>
+                    </div>
+                    <p class="project-description">
+                        Privacy-first expense tracking application with real-time calculations, 
+                        category management, and CSV export. Zero data storage - everything stays 
+                        in your browser for complete privacy.
+                    </p>
+                    <div class="project-links">
+                        <a href="/growth-apps/src/components/MoneyMasteryPage.jsx" class="btn">
+                            <i class="fas fa-eye"></i>
+                            Preview Code
+                        </a>
+                        <a href="https://akiyer18.github.io/#/money-mastery" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <button class="btn btn-secondary" onclick="copyCloneCommand('money-mastery')">
+                            <i class="fab fa-github"></i>
+                            Clone Project
+                        </button>
+                    </div>
+                    <div class="clone-command" id="money-mastery-clone" style="display: none;">
+                        git clone https://github.com/akiyer18/money-mastery-tool.git
+                        <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/akiyer18/money-mastery-tool.git')">Copy</button>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TailwindCSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Privacy-First</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>
+                            🍽️ Meal Decider Pro
+                        </h3>
+                        <span class="status-badge status-live">Live Demo</span>
+                    </div>
+                    <p class="project-description">
+                        Smart meal planning application with ingredient management, cooking time optimization, 
+                        and automated grocery list generation. Beautiful glass morphism UI with smooth animations.
+                    </p>
+                    <div class="project-links">
+                        <a href="/Meal_decider/" class="btn">
+                            <i class="fas fa-eye"></i>
+                            Preview App
+                        </a>
+                        <a href="https://akiyer18.github.io/Meal_decider/" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <button class="btn btn-secondary" onclick="copyCloneCommand('meal-decider')">
+                            <i class="fab fa-github"></i>
+                            Clone Project
+                        </button>
+                    </div>
+                    <div class="clone-command" id="meal-decider-clone" style="display: none;">
+                        git clone https://github.com/akiyer18/meal-decider-pro.git
+                        <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/akiyer18/meal-decider-pro.git')">Copy</button>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">LocalStorage</span>
+                        <span class="tech-tag">Responsive</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>
+                            🛒 Grocery List Generator
+                        </h3>
+                        <span class="status-badge status-live">Live Demo</span>
+                    </div>
+                    <p class="project-description">
+                        Advanced grocery management system with dish-based planning, manual entry, 
+                        frequency tracking, and smart reminders. Built with TypeScript for robust development.
+                    </p>
+                    <div class="project-links">
+                        <a href="/Grocery_list_generator/" class="btn">
+                            <i class="fas fa-eye"></i>
+                            Preview App
+                        </a>
+                        <a href="https://akiyer18.github.io/Grocery_list_generator/" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <button class="btn btn-secondary" onclick="copyCloneCommand('grocery-generator')">
+                            <i class="fab fa-github"></i>
+                            Clone Project
+                        </button>
+                    </div>
+                    <div class="clone-command" id="grocery-generator-clone" style="display: none;">
+                        git clone https://github.com/akiyer18/grocery-list-generator.git
+                        <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/akiyer18/grocery-list-generator.git')">Copy</button>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">Modern JS</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>
+                            🎮 Growth Mindset Game
+                        </h3>
+                        <span class="status-badge status-opensource">Open Source</span>
+                    </div>
+                    <p class="project-description">
+                        Gamified productivity platform with habit tracking, quest systems, achievements, 
+                        and level progression. Full React application with Supabase backend integration.
+                    </p>
+                    <div class="project-links">
+                        <a href="/growth-apps/" class="btn">
+                            <i class="fas fa-eye"></i>
+                            Preview Code
+                        </a>
+                        <a href="https://akiyer18.github.io/#/game" class="btn btn-outline" target="_blank">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <button class="btn btn-secondary" onclick="copyCloneCommand('growth-game')">
+                            <i class="fab fa-github"></i>
+                            Clone Project
+                        </button>
+                    </div>
+                    <div class="clone-command" id="growth-game-clone" style="display: none;">
+                        git clone https://github.com/akiyer18/growth-mindset-game.git
+                        <button class="copy-btn" onclick="copyToClipboard('git clone https://github.com/akiyer18/growth-mindset-game.git')">Copy</button>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Supabase</span>
+                        <span class="tech-tag">TailwindCSS</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Akshaye Iyer. Built with passion for clean code and beautiful design.</p>
+            <p style="margin-top: 0.5rem; opacity: 0.6;">
+                <a href="https://github.com/akiyer18/akiyer18.github.io">
+                    View portfolio source on GitHub
+                </a> • 
+                <a href="mailto:akshaye.iyer@outlook.com">
+                    Let's connect and build something amazing
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function copyCloneCommand(projectId) {
+            const cloneDiv = document.getElementById(projectId + '-clone');
+            if (cloneDiv.style.display === 'none') {
+                // Hide all other clone commands
+                document.querySelectorAll('.clone-command').forEach(div => {
+                    div.style.display = 'none';
+                });
+                cloneDiv.style.display = 'block';
+            } else {
+                cloneDiv.style.display = 'none';
+            }
+        }
+        
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                // Show temporary feedback
+                const event = window.event;
+                const button = event.target;
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.background = '#059669';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#8B7CF6';
+                }, 1500);
+            }).catch(function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+        
+        // Add smooth scrolling for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
   </body>
 </html> 
