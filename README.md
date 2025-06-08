@@ -1,4 +1,4 @@
-# Akshaye Iyer - Modern Portfolio Platform
+# Akshaye Iyer - Portfolio
 
 ![PORTFOLIO](https://img.shields.io/badge/PROJECT-PORTFOLIO-blue?style=for-the-badge)
 ![REACT](https://img.shields.io/badge/TECHNOLOGY-REACT-61DAFB?style=for-the-badge&logo=react)
@@ -8,7 +8,7 @@
 
 ## 🔗 Overview
 
-**Akshaye Iyer Portfolio** is a state-of-the-art modern portfolio platform designed for **Professional Software Engineers** that showcases innovative projects across AI, productivity tools, and creative applications. This project implements a custom **React Component Architecture** optimized for performance and user experience, enabling real-time project showcase and interactive exploration for technical professionals.
+**Akshaye Iyer Portfolio** is a portfolio platform designed for showcasing my projects across AI, productivity tools, and other applications. This project implements a custom **React Component Architecture** optimized for performance and user experience, enabling real-time project showcase and interactive exploration for professionals.
 
 ## Project Context
 
