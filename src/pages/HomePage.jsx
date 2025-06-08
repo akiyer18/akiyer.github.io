@@ -75,7 +75,7 @@ export default function HomePage() {
               </h1>
               
               <p className="text-xl md:text-2xl mb-8 opacity-90 font-medium">
-                Engineer of Ideas | Explorer of AI, LLMs, Linguistics, Football & Singing
+              Researcher & Builder | Exploring Agentic AI, LLMs & Human-Centered Innovation
               </p>
               
               <p className="text-lg md:text-xl mb-12 opacity-80 max-w-2xl mx-auto text-balance leading-relaxed">

@@ -32,8 +32,10 @@ export default function Footer() {
               <span className="text-xl font-bold gradient-text">Akshaye Iyer</span>
             </div>
             <p className="text-gray-600 dark:text-gray-300 text-sm">
-              Engineer of Ideas exploring the intersection of AI, linguistics, 
-              and creative expression through innovative open-source projects.
+            Driven by curiosity and purpose, I explore the frontiers of artificial intelligence—especially 
+            agentic frameworks, language models, and AI-assisted creativity—to build tools and systems that 
+            solve real problems and improve lives. My projects reflect a blend of research, innovation, and a
+            deep commitment to connecting people through technology.
             </p>
             <div className="flex items-center gap-4">
               {socialLinks.map((social) => (
