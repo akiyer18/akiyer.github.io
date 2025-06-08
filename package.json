@@ -1,10 +1,30 @@
 {
   "name": "akshaye-iyer-portfolio",
   "version": "1.0.0",
-  "description": "Professional portfolio showcasing open-source projects and web applications",
-  "main": "index.html",
+  "description": "Modern React portfolio showcasing open-source projects and web applications",
+  "type": "module",
   "scripts": {
-    "deploy": "gh-pages -d . -b gh-pages"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1",
+    "framer-motion": "^10.16.5",
+    "lucide-react": "^0.294.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^4.1.1",
+    "autoprefixer": "^10.4.16",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "vite": "^5.0.0"
   },
   "repository": {
     "type": "git",
@@ -13,14 +33,11 @@
   "author": "Akshaye Iyer <akshaye.iyer@outlook.com>",
   "license": "MIT",
   "homepage": "https://akiyer18.github.io",
-  "devDependencies": {
-    "gh-pages": "^6.3.0"
-  },
   "keywords": [
     "portfolio",
-    "web-development",
-    "javascript",
     "react",
+    "tailwindcss",
+    "web-development",
     "open-source"
   ]
 } 
