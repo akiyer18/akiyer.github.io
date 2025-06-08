@@ -10,8 +10,8 @@ export const projects = {
       privacy: 'Privacy-First',
       securityNote: 'All data stays in your browser. Nothing is sent to any server.',
       liveDemo: 'https://akiyer18.github.io/#/money-mastery',
-      github: 'https://github.com/akiyer18/money-mastery-tool',
-      cloneCommand: 'git clone https://github.com/akiyer18/money-mastery-tool.git',
+      github: 'https://github.com/akiyer18/Money-tracker',
+      cloneCommand: 'git clone https://github.com/akiyer18/Money-tracker.git',
       status: 'live'
     },
     {
@@ -26,7 +26,7 @@ export const projects = {
       liveDemo: 'https://akiyer18.github.io/Meal_decider/',
       github: 'https://github.com/akiyer18/meal-decider-pro',
       cloneCommand: 'git clone https://github.com/akiyer18/meal-decider-pro.git',
-      status: 'live'
+      status: 'building'
     },
     {
       id: 'grocery-generator',
@@ -40,7 +40,7 @@ export const projects = {
       liveDemo: 'https://akiyer18.github.io/Grocery_list_generator/',
       github: 'https://github.com/akiyer18/grocery-list-generator',
       cloneCommand: 'git clone https://github.com/akiyer18/grocery-list-generator.git',
-      status: 'live'
+      status: 'building'
     },
     {
       id: 'growth-game',
