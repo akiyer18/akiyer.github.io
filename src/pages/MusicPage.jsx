@@ -67,47 +67,106 @@ export default function MusicPage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {musicProjects.map((project, index) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                index={index}
-              />
-            ))}
-          </div>
-
-          {/* Coming Soon Notice */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-16 text-center"
-          >
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                🎼 Music Projects in Development
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-                These innovative music tools are currently in development. They'll combine modern web technologies 
-                with audio processing to create powerful, privacy-first music applications.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="https://github.com/akiyer18"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  Follow Development
-                </a>
-                <Link to="/growth" className="btn-outline">
-                  Try Live Tools
-                </Link>
-              </div>
+          {musicProjects.length > 0 ? (
+            <div className="grid md:grid-cols-2 gap-8">
+              {musicProjects.map((project, index) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={index}
+                />
+              ))}
             </div>
-          </motion.div>
+          ) : (
+            /* Upcoming Projects Message */
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center"
+            >
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-12 shadow-lg border border-gray-200 dark:border-gray-700">
+                <div className="mb-6">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 flex items-center justify-center text-white text-4xl">
+                    🎵
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    Projects Coming Soon
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto text-lg">
+                    Exciting music projects are currently in development! These innovative tools will combine 
+                    modern web technologies with audio processing to create powerful, privacy-first music applications.
+                  </p>
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-6 mb-8">
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
+                    <div className="text-3xl mb-3">🎛️</div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Beat Creation</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">Professional beat maker with intuitive controls</p>
+                  </div>
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
+                    <div className="text-3xl mb-3">🎼</div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Song Analysis</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">AI-powered music structure and pattern analysis</p>
+                  </div>
+                  <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
+                    <div className="text-3xl mb-3">🎧</div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Smart Playlists</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">Intelligent playlist generation and curation</p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="https://github.com/akiyer18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    Follow Development
+                  </a>
+                  <Link to="/growth" className="btn-outline">
+                    Try Live Tools
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Coming Soon Notice - Only show if there ARE projects */}
+          {musicProjects.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="mt-16 text-center"
+            >
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+                  🎼 Music Projects in Development
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+                  These innovative music tools are currently in development. They'll combine modern web technologies 
+                  with audio processing to create powerful, privacy-first music applications.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="https://github.com/akiyer18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    Follow Development
+                  </a>
+                  <Link to="/growth" className="btn-outline">
+                    Try Live Tools
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
     </div>

@@ -9,10 +9,10 @@ export default function Navigation() {
   const location = useLocation()
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/growth', label: 'Growth Tools' },
-    { path: '/music', label: 'Music' },
-    { path: '/ai', label: 'AI Tools' },
+    { path: '/applications', label: 'Applications', description: 'Projects and tools I\'ve built using AI' },
+    { path: '/about', label: 'About Me', description: 'My story, values, and goals' },
+    { path: '/theory', label: 'Theory & Writings', description: 'Personal papers and thoughts on AI, cognition, society' },
+    { path: '/advanced', label: 'Advanced Projects', description: 'Experimental work, research, and agentic AI frameworks' },
   ]
 
   const socialLinks = [

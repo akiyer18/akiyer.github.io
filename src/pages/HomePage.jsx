@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ChevronDown, TrendingUp, Music, Bot, Plus } from 'lucide-react'
-import { sectionInfo } from '../data/projects'
+import { ChevronDown, TrendingUp, Music, Bot, Plus, Heart, BookOpen, Zap } from 'lucide-react'
 
 export default function HomePage() {
   const navigate = useNavigate()
@@ -12,31 +11,40 @@ export default function HomePage() {
 
   const sectionCards = [
     {
-      key: 'growth',
-      title: sectionInfo.growth.title,
-      emoji: sectionInfo.growth.emoji,
-      description: sectionInfo.growth.description,
-      icon: TrendingUp,
-      color: sectionInfo.growth.color,
-      path: '/growth'
+      key: 'applications',
+      title: 'Applications',
+      emoji: '🚀',
+      description: 'Projects and tools I\'ve built using AI to solve real-world problems and enhance productivity.',
+      icon: Zap,
+      color: 'from-blue-500 to-purple-600',
+      path: '/applications'
     },
     {
-      key: 'music',
-      title: sectionInfo.music.title,
-      emoji: sectionInfo.music.emoji,
-      description: sectionInfo.music.description,
-      icon: Music,
-      color: sectionInfo.music.color,
-      path: '/music'
+      key: 'about',
+      title: 'About Me',
+      emoji: '👨‍💻',
+      description: 'My story, values, and goals as an engineer exploring the intersection of AI and human potential.',
+      icon: Heart,
+      color: 'from-emerald-500 to-teal-600',
+      path: '/about'
     },
     {
-      key: 'ai',
-      title: sectionInfo.ai.title,
-      emoji: sectionInfo.ai.emoji,
-      description: sectionInfo.ai.description,
+      key: 'theory',
+      title: 'Theory & Writings',
+      emoji: '📚',
+      description: 'Personal papers and thoughts on AI, cognition, society, and the future of human-AI collaboration.',
+      icon: BookOpen,
+      color: 'from-indigo-500 to-purple-600',
+      path: '/theory'
+    },
+    {
+      key: 'advanced',
+      title: 'Advanced Projects',
+      emoji: '🔬',
+      description: 'Experimental work, research, and agentic AI frameworks pushing the boundaries of what\'s possible.',
       icon: Bot,
-      color: sectionInfo.ai.color,
-      path: '/ai'
+      color: 'from-red-500 to-pink-600',
+      path: '/advanced'
     }
   ]
 
@@ -135,16 +143,16 @@ export default function HomePage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
-              Featured Collections
+              Explore My Work
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-balance">
-              Discover innovative projects across different domains, each crafted with attention 
-              to privacy, user experience, and cutting-edge technology.
+              From AI-powered applications to theoretical research, discover how I'm building 
+              the future through innovative projects that blend technology with human-centered design.
             </p>
           </motion.div>
 
           {/* Section Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
             {sectionCards.map((section, index) => (
               <motion.div
                 key={section.key}
