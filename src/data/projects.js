@@ -37,10 +37,10 @@ export const projects = {
       tech: ['TypeScript', 'Vite', 'CSS3', 'Modern JS'],
       privacy: 'Secure by Design',
       securityNote: 'Type-safe architecture ensures data integrity and security.',
-      // liveDemo: 'https://akiyer18.github.io/Grocery_list_generator/',
+      liveDemo: 'https://akiyer18.github.io/Grocery_list_generator/',
       github: 'https://github.com/akiyer18/Grocify.git',
       cloneCommand: 'git clone https://github.com/akiyer18/Grocify.git',
-      status: 'building'
+      status: 'live'
     }
   ],
   music: [],
