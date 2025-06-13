@@ -86,9 +86,11 @@ export default function ProjectCard({ project, index = 0 }) {
               {project.title}
             </h3>
             <div className="flex items-center gap-2 mt-1">
-              <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
-                {getStatusText(project.status)}
-              </span>
+              {(project.status === 'live' || project.status === 'beta') && (
+                <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(project.status)}`}>
+                  {getStatusText(project.status)}
+                </span>
+              )}
             </div>
           </div>
         </div>
