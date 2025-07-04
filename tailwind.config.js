@@ -8,30 +8,46 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Deep Indigo - Primary Colors (for text, navigation, headings)
         primary: {
-          50: '#f3f4f6',
-          100: '#e5e7eb',
-          200: '#d1d5db',
-          300: '#9ca3af',
-          400: '#6b7280',
-          500: '#374151',
-          600: '#1f2937',
-          700: '#111827',
-          800: '#0f172a',
-          900: '#0c0a09',
+          50: '#f8fafc',
+          100: '#f1f5f9',
+          200: '#e2e8f0',
+          300: '#cbd5e1',
+          400: '#94a3b8',
+          500: '#64748b',
+          600: '#475569',
+          700: '#334155',
+          800: '#2C3E50', // Main Deep Indigo
+          900: '#1e293b',
         },
+        // Burnt Saffron - Accent Colors (for CTAs, highlights, interactive elements)
         accent: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#a855f7',
-          600: '#9333ea',
-          700: '#7c3aed',
-          800: '#6b21a8',
-          900: '#581c87',
+          50: '#fef7ed',
+          100: '#fdedd3',
+          200: '#fbd7a5',
+          300: '#f8b86d',
+          400: '#f59332',
+          500: '#f3710a',
+          600: '#D35400', // Main Burnt Saffron
+          700: '#b03e00',
+          800: '#8f3300',
+          900: '#762b00',
         },
+        // Soft Sand - Background and neutral tones
+        sand: {
+          50: '#fefcf9',
+          100: '#F4EDE4', // Main Soft Sand
+          200: '#ede4d3',
+          300: '#e6dbc2',
+          400: '#dfd2b1',
+          500: '#d8c9a0',
+          600: '#c9b78f',
+          700: '#b8a47e',
+          800: '#a7916d',
+          900: '#967e5c',
+        },
+        // Keep cyan for compatibility
         cyan: {
           400: '#22d3ee',
           500: '#06b6d4',
